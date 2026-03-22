@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Health Data</title>
+</head>
+<body>
+    <h2>Update Health Data</h2>
+    <p>User ID: <input type="text" id="userId" placeholder="Paste userId here" style="width:300px"></p>
+    <p>Heart Rate: <input type="number" id="heartRate" value="95"></p>
+    <p>Temperature: <input type="number" id="temperature" value="37.8" step="0.1"></p>
+    <p>Work Time: <input type="number" id="workTime" value="9"></p>
+    <button onclick="updateHealth()">Update Health Data</button>
+    <p id="result"></p>
+
+    <script>
+        async function updateHealth() {
+            const userId = document.getElementById('userId').value;
+            const data = {
+                heartRate: Number(document.getElementById('heartRate').value),
+                temperature: Number(document.getElementById('temperature').value),
+                stressLevel: 'High',
+                workTime: Number(document.getElementById('workTime').value)
+            };
+
+            try {
+                const response = await fetch(`http://localhost:5002/api/workers/${userId}/health`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                document.getElementById('result').innerHTML = '✅ Updated! Refresh your dashboard.';
+            } catch (error) {
+                document.getElementById('result').innerHTML = '❌ Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

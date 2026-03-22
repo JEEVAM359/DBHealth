@@ -1,0 +1,19 @@
+[dotenv@17.3.1] injecting env (3) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+Server running on port 5002
+MongoDB Connected
+ESP32 raw body: {
+  temperature: 31.3,
+  bpm: 82,
+  motion: 9.41,
+  latitude: 11.0123,
+  longitude: 78.2345,
+  fall: false
+}
+ESP32 raw body: {
+  temperature: 31.3,
+  bpm: 82,
+  motion: 9.41,
+  latitude: 11.0123,
+  longitude: 78.2345,
+  fall: false
+}
