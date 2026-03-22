@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
@@ -72,7 +72,7 @@ function Reassign() {
   const [reason, setReason] = useState('');
   const [requestSent, setRequestSent] = useState(false);
   const [showDeliveryMap, setShowDeliveryMap] = useState(false);
-  const [deliveryLocation, setDeliveryLocation] = useState({ lat: 11.0300, lng: 76.9800, address: 'RS Puram, Coimbatore' });
+  const [deliveryLocation] = useState({ lat: 11.0300, lng: 76.9800, address: 'RS Puram, Coimbatore' });
   const [currentLocation, setCurrentLocation] = useState(null);
   const userId = localStorage.getItem('userId');
 
@@ -86,6 +86,7 @@ function Reassign() {
       }, 5000);
       return () => clearInterval(interval);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
 
   const loadWorkerData = async () => {

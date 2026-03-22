@@ -10,6 +10,7 @@ function Worker() {
 
   useEffect(() => {
     if (userId) loadWorker();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
 
   const loadWorker = async () => {

@@ -17,6 +17,7 @@ function Dashboard() {
       const interval = setInterval(()=>{ fetchWorkerData(); fetchEsp32(); }, 5000);
       return () => clearInterval(interval);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ function Dashboard() {
       const temp = esp32 ? esp32.temperature : worker.temperature;
       checkHealthAlerts(hr, temp, worker.workTime);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [esp32, worker]);
 
   const fetchEsp32 = async () => {

@@ -17,7 +17,7 @@ function Navbar() {
         <Link to="/route">AI Route</Link>
         <Link to="/reassign">Order Reassign</Link>
         <Link to="/worker">Worker Details</Link>
-        <a href="#" onClick={logout}>Logout</a>
+        <button onClick={logout} style={{background:'none',border:'none',cursor:'pointer',color:'inherit',fontSize:'inherit'}}>Logout</button>
       </div>
     </nav>
   );
